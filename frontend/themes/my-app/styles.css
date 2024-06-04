@@ -1,0 +1,22 @@
+@import url('./main-layout.css');
+@import url('./views/users-view.css');
+@import url('./views/dashboard-view.css');
+@import url('@fontsource/arvo/index.css');    html {
+      --lumo-border-radius-s: calc(var(--lumo-size-m) / 6);
+      --lumo-border-radius-m: calc(var(--lumo-size-m) / 2);
+      --lumo-border-radius-l: var(--lumo-size-m);
+      --lumo-size-xl: 4rem;
+      --lumo-size-l: 3rem;
+      --lumo-size-m: 2.5rem;
+      --lumo-size-s: 2rem;
+      --lumo-size-xs: 1.75rem;
+--lumo-font-family: Arvo;
+
+    }
+
+    [theme~="dark"] {
+      --lumo-primary-color: hsl(214, 76%, 42%);
+      --lumo-primary-color-50pct: hsla(214, 76%, 42%, 0.5);
+      --lumo-primary-color-10pct: hsla(214, 76%, 42%, 0.1);
+
+    }
