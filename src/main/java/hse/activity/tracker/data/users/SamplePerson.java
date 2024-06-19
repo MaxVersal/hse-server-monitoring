@@ -1,8 +1,15 @@
-package hse.activity.tracker.data;
+package hse.activity.tracker.data.users;
 
+import hse.activity.tracker.data.AbstractEntity;
+import hse.activity.tracker.data.projects.Project;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Email;
+
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class SamplePerson extends AbstractEntity {
@@ -13,9 +20,17 @@ public class SamplePerson extends AbstractEntity {
     private String email;
     private String phone;
     private LocalDate dateOfBirth;
-    private String occupation;
     private String role;
-    private boolean important;
+    @ManyToMany(mappedBy = "users")
+    private List<Project> projectList;
+
+    public List<Project> getProjectList() {
+        return projectList;
+    }
+
+    public void setProjectList(List<Project> projectList) {
+        this.projectList = projectList;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -47,23 +62,11 @@ public class SamplePerson extends AbstractEntity {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-    public String getOccupation() {
-        return occupation;
-    }
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
-    }
     public String getRole() {
         return role;
     }
     public void setRole(String role) {
         this.role = role;
-    }
-    public boolean isImportant() {
-        return important;
-    }
-    public void setImportant(boolean important) {
-        this.important = important;
     }
 
 }
